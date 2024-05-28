@@ -10,36 +10,76 @@ menuIcon.onclick = () => {
 
 /* scrool section active link */
 
-let section = document.querySelector('section');
-let navlinks = document.querySelector('header nav a');
+// let section = document.querySelector('section');
+// let navlinks = document.querySelector('header nav a');
 
-window.onscroll = () => {
-    section.forEach(sec => {
-        let top = window.scrollY;
-        let offset = sec.offsetTop - 150;
-        let height = sec.offsetHeight;
-        let id = sec.getAttribute('id');
+// window.onscroll = () => {
+//     section.forEach(sec => {
+//         let top = window.scrollY;
+//         let offset = sec.offsetTop - 150;
+//         let height = sec.offsetHeight;
+//         let id = sec.getAttribute('id');
 
-        if(top >= offset && top < offset + height) {
-            navlinks.forEach.apply(links =>{
-                links.classList.remove('active');
-                document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
-            });
-        };
-        
+//         if(top >= offset && top < offset + height) {
+//             navlinks.forEach.apply(links =>{
+//                 links.classList.remove('active');
+//                 document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+//             });
+//         };
+
+//     });
+
+
+
+//     /* sticky navbar */
+//     let header = document.querySelector('header');
+//     header.classList.toggle('sticky', window.scrollY > 100);
+
+//     /* remove toggle icon and navbar */
+//     menuIcon.classList.remove('fa-xmark');
+//     navbar.classList.remove('active');
+
+// };
+
+/* Scroll-based active link and sticky navbar */
+
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('header nav a');
+
+window.addEventListener('scroll', () => {
+    let currentSection;
+    const scrollY = window.scrollY;
+
+    sections.forEach((section) => {
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+        const bottom = top + height;
+
+        // Improved active link logic with buffer for smoother scrolling
+        if (scrollY >= top - 100 && scrollY < bottom) {
+            currentSection = section;
+            return; // Exit loop after finding the active section
+        }
     });
 
+    if (currentSection) {
+        const id = currentSection.getAttribute('id');
+        navLinks.forEach((link) => {
+            link.classList.remove('active');
+            if (link.href.includes(id)) {
+                link.classList.add('active');
+            }
+        });
+    }
 
-
-    /* sticky navbar */
-    let header = document.querySelector('header');
-    header.classList.toggle('sticky', window.scrollY > 100);
+    // Sticky navbar with smooth transition
+    const header = document.querySelector('header');
+    header.classList.toggle('sticky', scrollY > 100);
 
     /* remove toggle icon and navbar */
     menuIcon.classList.remove('fa-xmark');
     navbar.classList.remove('active');
-
-};
+});
 
 /* Scroll Reveal */
 
@@ -48,13 +88,13 @@ ScrollReveal({
     duration: 2000,
     delay: 200,
 });
-ScrollReveal().reveal('.home-image, heading', {origin: 'top'});
-ScrollReveal().reveal(' .service-container, .project-box, .contact form', {origin: 'bottom'});
-ScrollReveal().reveal('.home-content, .about-image', {origin: 'left'});
-ScrollReveal().reveal('.about-content', {origin: 'right'});
+ScrollReveal().reveal('.home-image, heading', { origin: 'top' });
+ScrollReveal().reveal(' .service-container, .project-box, .contact form', { origin: 'bottom' });
+ScrollReveal().reveal('.home-content, .about-image', { origin: 'left' });
+ScrollReveal().reveal('.about-content', { origin: 'right' });
 
-const typed = new Typed('.multiple-text',{
-    strings: ['Web Design and Development','Full Stack Development','Digital Brand Management','Virtual Assistance','E-commerce Management','Administrative Support'],
+const typed = new Typed('.multiple-text', {
+    strings: ['Web Design and Development', 'Full Stack Development', 'Digital Brand Management', 'Virtual Assistance', 'E-commerce Management', 'Administrative Support'],
     typeSpeed: 70,
     backSpeed: 70,
     backDelay: 1000,
@@ -69,14 +109,14 @@ const showPopupButton2 = document.getElementById('show-popup2');
 const showPopupButton3 = document.getElementById('show-popup3');
 
 const popupSection = document.getElementById('pop-up');
-const closeButton = document.querySelector('.close-btn');  
+const closeButton = document.querySelector('.close-btn');
 
 function showPopup() {
-  popupSection.classList.add('active');  
+    popupSection.classList.add('active');
 }
 
 function hidePopup() {
-  popupSection.classList.remove('active');  
+    popupSection.classList.remove('active');
 }
 
 showPopupButton.addEventListener('click', showPopup);
