@@ -29,6 +29,8 @@ window.onscroll = () => {
         
     });
 
+
+
     /* sticky navbar */
     let header = document.querySelector('header');
     header.classList.toggle('sticky', window.scrollY > 100);
@@ -52,12 +54,36 @@ ScrollReveal().reveal('.home-content, .about-image', {origin: 'left'});
 ScrollReveal().reveal('.about-content', {origin: 'right'});
 
 const typed = new Typed('.multiple-text',{
-    strings: ['Full Stack Developer', 'Web Developer','Software Engineer','Virtual Assistant'],
+    strings: ['Web Design and Development','Full Stack Development','Digital Brand Management','Virtual Assistance','E-commerce Management','Administrative Support'],
     typeSpeed: 70,
     backSpeed: 70,
     backDelay: 1000,
     loop: true,
 });
+
+
+// pop-up section 
+
+const showPopupButton = document.getElementById('show-popup');
+const showPopupButton2 = document.getElementById('show-popup2');
+const showPopupButton3 = document.getElementById('show-popup3');
+
+const popupSection = document.getElementById('pop-up');
+const closeButton = document.querySelector('.close-btn');  
+
+function showPopup() {
+  popupSection.classList.add('active');  
+}
+
+function hidePopup() {
+  popupSection.classList.remove('active');  
+}
+
+showPopupButton.addEventListener('click', showPopup);
+showPopupButton2.addEventListener('click', showPopup);
+showPopupButton3.addEventListener('click', showPopup);
+
+closeButton.addEventListener('click', hidePopup);
 
 
 

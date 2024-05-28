@@ -37,6 +37,7 @@ h1 {
     line-height: 1.3;
     color: var(--special-text-color);
 }
+
 h3 {
     font-size: 3rem;
     font-weight: 700;
@@ -53,7 +54,7 @@ p {
 
 section {
     min-height: 100vh;
-    padding: 10rem 9% 2rem;
+    padding: 5rem 9% 3rem;
 }
 
 .header {
@@ -118,9 +119,11 @@ span {
     0% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-2.4rem);
     }
+
     100% {
         transform: translateY(0);
     }
@@ -151,7 +154,7 @@ span {
     display: inline-block;
     padding: 1rem 2rem;
     background: var(--main-color);
-    border-radius: 2rem;
+    border-radius: 1.5rem;
     box-shadow: 0 0 1rem var(--main-color);
     font-size: 1.6rem;
     color: var(--bg-color);
@@ -162,6 +165,26 @@ span {
 
 .btn:hover {
     box-shadow: none;
+}
+
+.btn2 {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--2nd-bg-color);
+    border-radius: 1.5rem;
+    box-shadow: 0 0 1rem var(--main-color);
+    font-size: 1.6rem;
+    color: var(--main-color);
+    border: .2rem solid var(--2nd-bg-color);
+    letter-spacing: .1rem;
+    font-weight: 700;
+    transition: .5s ease;
+}
+
+.btn2:hover {
+    box-shadow: none;
+    border: .2rem solid var(--main-color);
+
 }
 
 .about {
@@ -178,11 +201,31 @@ span {
 
 .heading {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 1rem;
 }
 
 .about-content p {
     margin: 2rem 0 3rem;
+}
+
+.about h2,
+.about h3 {
+    color: var(--special-text-color);
+}
+
+.about .subtitle {
+    color: var(--text-color);
+    font-size: 2rem;
+}
+
+.about .story {
+    font-size: 1.6rem;
+    text-align: justify;
+}
+
+.about-buttons {
+    display: inline-flex;
+    gap: 3rem;
 }
 
 .services {
@@ -190,7 +233,7 @@ span {
 }
 
 .services h2 {
-    margin-bottom: 5rem;
+    margin-bottom: 1rem;
     color: var(--bg-color);
 }
 
@@ -210,40 +253,50 @@ span {
     text-align: center;
     border: .2rem solid var(--bg-color);
     transform: .5s ease;
+    height: 38rem;
 }
 
 .service-container .service-box:hover {
     border-color: var(--main-color);
-    transform: scale(1.02);  
+    transform: scale(1.02);
 }
 
 .service-box i {
     font-size: 7rem;
     color: var(--main-color);
-    
+
 }
+
 .service-box h3 {
     font-size: 2.5rem;
+    margin-bottom: 2rem;
 }
+
 .service-box p {
     font-size: 1.6rem;
     margin: 1rem 0 3rem;
+}
+
+.services a {
+    display: block;
+    margin: 0 auto;
 }
 
 .projects {
     background-color: var(--bg-color);
 }
 
-.projects h2 {
-    margin-bottom: 4rem;
+.projects .subtitle {
+    color: var(--text-color);
 }
 
 .project-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     align-items: center;
-    gap: 4rem;  
+    gap: 4rem;
 }
+
 .project-container .project-box {
     position: relative;
     border-radius: 2rem;
@@ -251,21 +304,24 @@ span {
     overflow: hidden;
     display: flex;
 }
+
 .project-box img {
     width: 100%;
     transition: .5s ease;
     opacity: 0.7;
 }
+
 .project-box:hover img {
     transform: scale(1.1);
 }
+
 .project-box .project-layer {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.1), var(--bg-color));
+    background: linear-gradient(rgba(0, 0, 0, 0.3), var(--bg-color));
     display: flex;
     justify-content: center;
     align-items: center;
@@ -279,24 +335,27 @@ span {
 .project-box:hover .project-layer {
     transform: translateY(0);
 }
+
 .project-layer h4 {
-    font-size: 3rem;
+    font-size: 2.4rem;
 }
+
 .project-layer p {
     font-size: 1.6rem;
     margin: 2rem 0 1rem
 }
+
 .project-layer a {
     display: inline-flex;
     justify-content: center;
     align-items: center;
     width: 5rem;
     height: 5rem;
-    background: var(--text-color);
     border-radius: 50%;
 }
+
 .project-layer a i {
-    font-size: 3rem;
+    font-size: 2rem;
     color: var(--main-color);
 }
 
@@ -304,14 +363,25 @@ span {
     background: var(--2nd-bg-color);
 }
 
-.contact h2 {
-    margin-bottom: 3rem;
+.contact .subtitle {
+    color: var(--text-color);
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .contact form {
+    flex: 2 1 60%;
     max-width: 70rem;
     margin: 1rem auto;
     text-align: center;
+    margin-bottom: 3rem;
+}
+.contact form h3 {
     margin-bottom: 3rem;
 }
 
@@ -322,12 +392,13 @@ span {
 }
 
 .contact form .input-box input,
+.contact form .subject,
 .contact form textarea {
     width: 100%;
     padding: 1.5rem;
     font-size: 1.6rem;
-    color: var(--text-color);
-    background: var(--bg-color);
+    color: black;
+    background: var(--text-color);
     border-radius: .8rem;
     margin: .7rem 0;
 }
@@ -335,13 +406,51 @@ span {
 .contact form .input-box input {
     width: 49%;
 }
+.contact form .input-box input[type="number"]::-webkit-outer-spin-button,
+.contact form .input-box input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
 .contact form textarea {
     resize: none;
 }
-.contact form .btn {
+
+.contact form .btn2 {
     margin-top: 3rem;
     cursor: pointer;
 }
+
+.contact-details {
+    flex: 1 1 40%;
+    text-align: right;
+    padding: 3rem;
+}
+.contact-details h3 {
+    margin-bottom: 4rem;
+}
+.contact-details ul {
+    list-style: none;
+    margin-bottom: 3rem;
+}
+.contact-details li {
+    margin-bottom: 2rem;
+}
+.contact-details li a {
+    text-decoration: none;
+    font-size: 2rem;
+    background: transparent;
+    color: var(--2nd-color);
+    transition: .5sec ease;
+}
+.contact-details li a:hover {
+    color: var(--main-color);
+
+}
+.contact-details li i {
+    margin-right: .5rem;
+}
+
+
 
 .footer {
     display: flex;
@@ -351,9 +460,11 @@ span {
     padding: 2rem 9%;
     background: var(--bg-color);
 }
+
 .footer-text {
     font-size: 1.6rem;
 }
+
 .footer-icontop {
     display: inline-flex;
     justify-content: center;
@@ -363,6 +474,7 @@ span {
     border-radius: .8rem;
     transition: .5s ease;
 }
+
 .footer-icontop:hover {
     box-shadow: 0 0 1rem var(--main-color);
 }
@@ -373,36 +485,52 @@ span {
 
 /* Breakpoint !*/
 
-@media (max-width: 1200px) {
+@media (max-width: 1300px) {
     html {
         font-size: 55%;
     }
+
+    .service-container .service-box {
+        height: auto;
+    }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1024px) {
     .header {
         padding: 2rem 3%;
     }
+
     section {
         padding: 10rem 3%;
+        min-height: auto;
     }
+
     .services {
         padding: 7rem;
     }
+
     .projects {
         padding-bottom: 7rem;
     }
+
     .contact {
         min-height: auto;
     }
+
+    .about-buttons {
+        gap: 1rem;
+    }
+
     .footer {
         padding: 2rem 3;
     }
 }
+
 @media (max-width: 768px) {
     #menu-icon {
         display: block;
     }
+
     .navbar {
         position: absolute;
         top: 100%;
@@ -414,65 +542,227 @@ span {
         box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.2);
         display: none;
     }
+
     .navbar.active {
         display: block;
     }
+
     .navbar a {
         display: block;
         font-size: 2rem;
         margin: 3rem 0;
     }
+
     .home {
         flex-direction: column;
     }
+
     .home-content h3 {
         font-size: 2.6rem;
     }
+
     .home-content h1 {
         font-size: 5rem;
     }
+
     .home-content {
         order: 2;
     }
+
     .home-image img {
         width: 70vw;
         margin-top: 4rem;
     }
+
     .about {
         flex-direction: column;
     }
+
     .about-image img {
         width: 80vw;
         margin-top: 4rem;
     }
+
     .services h2 {
-        margin-bottom: 3rem;
+        margin-bottom: 1rem;
     }
+    
+    .service-container .service-box {
+        height: auto;
+    }
+
     .projects h2 {
         margin-bottom: 3rem;
     }
+
     .project-container {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .contact-details {
+        text-align: center;
+    }
+
+    .footer-text p {
+        font-size: 1.4rem;
+    }
 }
+
 @media (max-width: 617px) {
     .project-container {
         grid-template-columns: 1fr;
     }
+
     .home-image img {
         width: 80vw;
         margin-top: 8rem;
     }
+
     .about-image img {
         width: 90vw;
         margin-top: 4rem;
     }
+
+    .footer-text p {
+        font-size: 1.2rem;
+    }
 }
+
 @media (max-width: 450px) {
     html {
         font-size: 50%;
     }
+
     .contact form .input-box input {
         width: 100%;
     }
+}
+
+/* popup form design */
+
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+#pop-up {
+    display: none;
+}
+#pop-up.active {  
+    display: flex;  
+}
+
+.modal-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    width: fit-content;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 40rem;
+    width: 100%;
+    padding: 2rem 2rem;
+    border-radius: 2rem;
+    background-color: var(--2nd-bg-color);
+}
+
+.modal-box h2 {
+    font-size: 3rem;
+    color: var(--special-text-color);
+    margin-top: 2rem;
+}
+
+.modal-box form {
+    max-width: 70rem;
+    margin: 1rem auto;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.modal-box form .input-box input,
+.modal-box form .input-box textarea {
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    color: var(--text-color);
+    background: var(--bg-color);
+    border-radius: .8rem;
+    margin: .7rem 0;
+}
+
+.modal-box form .btn {
+    margin-top: 3rem;
+    cursor: pointer;
+}
+
+.close-btn {
+    position: absolute;
+    top: 1.5rem;  
+    right: 1.5rem; 
+    color: var(--main-color); 
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;  
+    cursor: pointer;
+}
+
+/* Learn more button */
+
+.learn-more {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.services .learn-more .btn2 {
+    box-shadow: 0 0 1.5rem var(--2nd-bg-color);
+}
+
+
+.projects .learn-more .btn2 {
+    background-color: var(--bg-color);
+}
+
+/* About- skills */
+
+.skills {
+    margin: 2rem 0;  /* Add some space above the skills section */
+    display: flex;
+    flex-wrap: wrap;  /* Allow skills to wrap on smaller screens */
+    justify-content: left;  /* Center skills horizontally */
+}
+
+.skills .skill {
+    padding: 1rem 0;
+    margin-right: 3rem;
+    border-radius: .5rem;  
+    background-color: transparent;  
+    color: var(--2nd-color);
+    font-size: 1.8rem;  
+    font-weight: bold;  
+    display: inline-block;  
+    text-align: center;  
+    transition: all 0.2s ease-in-out; 
+} 
+
+.skills .skill:hover {
+    color: var(--special-text-color);    
+}
+
+.subtitle {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--2nd-bg-color);
+    font-size: 2.5rem;
 }
